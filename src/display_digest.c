@@ -80,7 +80,7 @@ void				display_digest(t_parser *ps)
 		if (f->fd != -1)
 		{
 			if (opt[_Q] || f->stdin)
-				ft_print_str(2, f->output, "\n");
+				ft_print_str(3, "(stdin)= ", f->output, "\n");
 			else if (opt[_R])
 				ft_print_str(4, f->output, "  ", f->name, "\n");
 			else

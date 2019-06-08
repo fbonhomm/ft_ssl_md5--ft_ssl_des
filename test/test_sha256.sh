@@ -6,7 +6,7 @@ echo " ------ a"
 counter=1
 while [ $counter -le 10 ]
 do
-  echo "$a" | openssl sha -sha256 > c1
+  echo "$a" | openssl sha256 > c1
   echo "$a" | ../ft_ssl sha256 > c2
   ret=$(diff -u c1 c2)
 
@@ -27,7 +27,7 @@ echo " ------ a2"
 counter=1
 while [ $counter -le 10 ]
 do
-  echo "$a" | openssl sha -sha256 > c1
+  echo "$a" | openssl sha256 > c1
   echo "$a" | ../ft_ssl sha256 > c2
   ret=$(diff -u c1 c2)
 
@@ -47,7 +47,7 @@ echo " ------ 12gc3c21h1e\\t21\\ne1n2n12vev##12jv"
 counter=1
 while [ $counter -le 5 ]
 do
-  echo "$a" | openssl sha -sha256 > c1
+  echo "$a" | openssl sha256 > c1
   echo "$a" | ../ft_ssl sha256 > c2
   ret=$(diff -u c1 c2)
 
@@ -67,7 +67,7 @@ echo " ------ bjk3245b23jkb5a"
 counter=1
 while [ $counter -le 5 ]
 do
-  echo "$a" | openssl sha -sha256 > c1
+  echo "$a" | openssl sha256 > c1
   echo "$a" | ../ft_ssl sha256 > c2
   ret=$(diff -u c1 c2)
 
@@ -84,7 +84,7 @@ done
 
 
 echo " ------ PDF"
-openssl sha -sha256 ./document.pdf > c1
+openssl sha256 ./document.pdf > c1
 ../ft_ssl sha256 ./document.pdf > c2
 ret=$(diff -u c1 c2)
 
@@ -96,7 +96,7 @@ then
 fi
 
 echo " ------ IMAGE"
-openssl sha -sha256 ./image.png > c1
+openssl sha256 ./image.png > c1
 ../ft_ssl sha256 ./image.png > c2
 ret=$(diff -u c1 c2)
 

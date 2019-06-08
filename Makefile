@@ -3,7 +3,7 @@ NAME = ft_ssl
 
 CC = gcc
 
-FLAG = -g -Wall -Wextra
+FLAG = -Wextra
 
 LIB = -L libft/ -lft
 
