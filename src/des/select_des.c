@@ -12,6 +12,22 @@
 
 #include <ft_ssl.h>
 
+
+static uint64_t	convert_8_to_64(uint8_t *buf)
+{
+	size_t		i;
+	uint64_t	tmp;
+
+	i = 0;
+	tmp = 0;
+	while (i < 8)
+	{
+		tmp = (tmp << 8) | *(buf + i);
+		i++;
+	}
+	return (tmp);
+}
+
 static void		select_decrypt(t_des *s, int des_mode)
 {
 	if (des_mode == ECB_MODE)
