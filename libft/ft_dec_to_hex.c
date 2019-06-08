@@ -12,37 +12,37 @@
 
 #include "libft.h"
 
-
-void ft_dec_to_hex(unsigned int n, char *result)
+static void	ft_dec_to_hex_annex(int i, int j, char *result)
 {
-    int i;
-    int j;
-    size_t temp;
-    char hexdec[1024];
+	while ((j + i) < 7)
+		result[i++] = '0';
+}
 
-    j = 0;
-    i = 0;
-    while (n != 0)
-    {
-        temp = 0;
-        temp = n % 16;
-        if (temp < 10)
-            hexdec[j++] = temp + 48;
-        else
-            hexdec[j++] = temp + 55;
-        n = n / 16;
-    }
-    j -= 1;
-    if (j < 7)
-    {
-        while ((j + i) < 7)
-            result[i++] = '0';
-    }
-    while (j >= 0)
-    {
-        if (hexdec[j] >= 65 && hexdec[j] <= 90)
-            hexdec[j] = hexdec[j] + 32;
-        result[i++] = hexdec[j--];
-    }
-    return;
+void		ft_dec_to_hex(unsigned int n, char *result)
+{
+	int		i;
+	int		j;
+	char	hexdec[1024];
+	size_t	temp;
+
+	j = 0;
+	i = 0;
+	while (n != 0)
+	{
+		temp = n % 16;
+		if (temp < 10)
+			hexdec[j++] = temp + 48;
+		else
+			hexdec[j++] = temp + 55;
+		n = n / 16;
+	}
+	j -= 1;
+	if (j < 7)
+		ft_dec_to_hex_annex(i, j, result);
+	while (j >= 0)
+	{
+		if (hexdec[j] >= 65 && hexdec[j] <= 90)
+			hexdec[j] = hexdec[j] + 32;
+		result[i++] = hexdec[j--];
+	}
 }
